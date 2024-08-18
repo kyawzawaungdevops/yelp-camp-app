@@ -38,5 +38,18 @@ jobs:
     - name: Run test
       run: npm test
 
+  SCA-scan:
+      runs-on: ubuntu-latest
+
+      steps: 
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@2.3.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      
+
 
 
